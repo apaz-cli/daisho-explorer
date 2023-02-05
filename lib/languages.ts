@@ -43,6 +43,28 @@ type DefKeys =
 type LanguageDefinition = Pick<Language, DefKeys>;
 
 const definitions: Record<LanguageKey, LanguageDefinition> = {
+    pgen: {
+        name: 'pgen',
+        monaco: 'pgen',
+        extensions: ['.tok', '.peg', '.pgen'],
+        alias: [],
+        logoUrl: 'pgen.png',
+        logoUrlDark: null,
+        formatter: null,
+        previewFilter: null,
+        monacoDisassembly: 'nc',
+    },
+    daisho: {
+        name: 'Daisho',
+        monaco: 'daisho',
+        extensions: ['.daisho', '.dai'],
+        alias: [],
+        logoUrl: 'daisho.png',
+        logoUrlDark: null,
+        formatter: null,
+        previewFilter: null,
+        monacoDisassembly: 'nc',
+    },
     jakt: {
         name: 'Jakt',
         monaco: 'jakt',

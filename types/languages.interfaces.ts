@@ -23,6 +23,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 export type LanguageKey =
+    | 'pgen'
+    | 'daisho'
     | 'ada'
     | 'analysis'
     | 'assembly'
