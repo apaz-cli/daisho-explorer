@@ -100,7 +100,7 @@ function definition(): monaco.languages.IMonarchLanguage {
                     {
                         cases: {
                             '@delims': 'delimiter',
-                            '@default': 'invalid',
+                            '@default': '',
                         },
                     },
                 ],
@@ -109,7 +109,7 @@ function definition(): monaco.languages.IMonarchLanguage {
                     {
                         cases: {
                             '@operators': 'operator',
-                            '@default': 'invalid',
+                            '@default': '',
                         },
                     },
                 ],
