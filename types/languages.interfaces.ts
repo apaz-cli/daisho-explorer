@@ -108,4 +108,6 @@ export interface Language {
     monacoDisassembly: string | null;
     /** Brief description of the language */
     tooltip?: string;
+    /** Default compiler for the language. This is populated when handed to the frontend. */
+    defaultCompiler?: string;
 }
