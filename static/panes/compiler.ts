@@ -415,7 +415,13 @@ export class Compiler extends MonacoPane<monaco.editor.IStandaloneCodeEditor, Co
                     readOnly: true,
                     language: 'asm',
                     glyphMargin: !options.embedded,
-                    // guides: false,
+                    guides: {
+                        bracketPairs: false,
+                        bracketPairsHorizontal: false,
+                        highlightActiveBracketPair: false,
+                        highlightActiveIndentation: false,
+                        indentation: false,
+                    },
                     vimInUse: false,
                 },
                 this.settings
@@ -1156,7 +1162,7 @@ export class Compiler extends MonacoPane<monaco.editor.IStandaloneCodeEditor, Co
 
     findTools(content: any, tools: ActiveTools[]): ActiveTools[] {
         if (content.componentName === 'tool') {
-            if (content.componentState.compiler === this.id) {
+            if (content.componentState.id === this.id) {
                 tools.push({
                     id: content.componentState.toolId,
                     args: content.componentState.args,
@@ -2422,6 +2428,7 @@ export class Compiler extends MonacoPane<monaco.editor.IStandaloneCodeEditor, Co
             }
             return Components.getToolViewWith(
                 this.id,
+                this.getCompilerName(),
                 this.sourceEditorId ?? 0,
                 toolId,
                 args,
