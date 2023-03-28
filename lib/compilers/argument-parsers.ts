@@ -452,3 +452,17 @@ export class ToitParser extends BaseParser {
         return compiler;
     }
 }
+
+export class PgenParser extends BaseParser {
+    static override async parse(compiler) {
+        await PgenParser.getOptions(compiler, '--help');
+        return compiler;
+    }
+}
+
+export class DaishoParser extends BaseParser {
+    static override async parse(compiler) {
+        await DaishoParser.getOptions(compiler, '--help');
+        return compiler;
+    }
+}

@@ -46,7 +46,7 @@ const definitions: Record<LanguageKey, LanguageDefinition> = {
     pgen: {
         name: 'pgen',
         monaco: 'pgen',
-        extensions: ['.tok', '.peg', '.pgen'],
+        extensions: ['.peg', '.pgen'],
         alias: [],
         logoUrl: 'pgen.png',
         logoUrlDark: null,
