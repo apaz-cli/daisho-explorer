@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+RELEASE_FILE_NAME="daisho-explorer-release"
+
 set -euo pipefail
 
 ROOT="$(
@@ -8,17 +10,12 @@ ROOT="$(
 )"
 cd "$ROOT"
 
-RELEASE_FILE_NAME=${GITHUB_RUN_NUMBER}
-RELEASE_NAME=gh-${RELEASE_FILE_NAME}
 HASH=$(git rev-parse HEAD)
 
 # Clear the output
 rm -rf out
 mkdir -p out/dist
 cd out/dist
-
-echo "${HASH}" >git_hash
-echo "${RELEASE_NAME}" >release_build
 
 cp -R "${ROOT}"/etc \
       "${ROOT}"/examples \
@@ -39,10 +36,6 @@ cd out/dist
 npm install --no-audit --ignore-scripts --production
 rm -rf node_modules/.cache/ node_modules/monaco-editor/
 find node_modules -name \*.ts -delete
-
-# Output some magic for GH to set the branch name and release name
-echo "branch=${GITHUB_REF#refs/heads/}" >> "${GITHUB_OUTPUT}"
-echo "release_name=${RELEASE_NAME}" >> "${GITHUB_OUTPUT}"
 
 # Run to make sure we haven't just made something that won't work
 node -r esm ./app.js --version --dist
