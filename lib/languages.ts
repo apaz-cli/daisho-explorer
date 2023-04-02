@@ -27,7 +27,7 @@ import path from 'path';
 import fs from 'fs-extra';
 import _ from 'underscore';
 
-import {Language, LanguageKey} from '../types/languages.interfaces';
+import type {Language, LanguageKey} from '../types/languages.interfaces.js';
 
 type DefKeys =
     | 'name'
@@ -184,6 +184,17 @@ const definitions: Record<LanguageKey, LanguageDefinition> = {
         logoUrl: 'cmake.svg',
         logoUrlDark: null,
         formatter: null,
+        previewFilter: null,
+        monacoDisassembly: null,
+    },
+    cobol: {
+        name: 'COBOL',
+        monaco: 'cobol',
+        extensions: ['.cob', '.cbl', '.cobol'],
+        alias: [],
+        logoUrl: null, // TODO: Find a better alternative
+        formatter: null,
+        logoUrlDark: null,
         previewFilter: null,
         monacoDisassembly: null,
     },
@@ -440,6 +451,28 @@ const definitions: Record<LanguageKey, LanguageDefinition> = {
         previewFilter: null,
         monacoDisassembly: null,
     },
+    llvm_mir: {
+        name: 'LLVM MIR',
+        monaco: 'llvm-ir',
+        extensions: ['.mir'],
+        alias: [],
+        logoUrl: 'llvm.png',
+        logoUrlDark: null,
+        formatter: null,
+        previewFilter: null,
+        monacoDisassembly: null,
+    },
+    modula2: {
+        name: 'Modula-2',
+        monaco: 'modula2',
+        extensions: ['.mod'],
+        alias: [],
+        logoUrl: null,
+        logoUrlDark: null,
+        formatter: null,
+        previewFilter: null,
+        monacoDisassembly: null,
+    },
     nim: {
         name: 'Nim',
         monaco: 'nim',
@@ -633,6 +666,17 @@ const definitions: Record<LanguageKey, LanguageDefinition> = {
         extensions: ['.zig'],
         alias: [],
         logoUrl: 'zig.svg',
+        logoUrlDark: null,
+        formatter: null,
+        previewFilter: null,
+        monacoDisassembly: null,
+    },
+    javascript: {
+        name: 'Javascript',
+        monaco: 'typescript',
+        extensions: ['.mjs'],
+        alias: [],
+        logoUrl: 'js.svg',
         logoUrlDark: null,
         formatter: null,
         previewFilter: null,

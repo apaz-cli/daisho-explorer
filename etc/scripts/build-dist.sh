@@ -38,7 +38,7 @@ rm -rf node_modules/.cache/ node_modules/monaco-editor/
 find node_modules -name \*.ts -delete
 
 # Run to make sure we haven't just made something that won't work
-node -r esm ./app.js --version --dist
+../../node_modules/.bin/ts-node-esm ./app.js --version --dist
 
 rm -rf "${ROOT}/out/dist-bin"
 mkdir -p "${ROOT}/out/dist-bin"

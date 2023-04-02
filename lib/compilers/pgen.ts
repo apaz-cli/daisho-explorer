@@ -1,6 +1,6 @@
-import {ParseFiltersAndOutputOptions} from '../../types/features/filters.interfaces';
-import {BaseCompiler} from '../base-compiler';
-import {PgenParser} from './argument-parsers';
+import {ParseFiltersAndOutputOptions} from '../../types/features/filters.interfaces.js';
+import {BaseCompiler} from '../base-compiler.js';
+import {PgenParser} from './argument-parsers.js';
 
 export class PgenCompiler extends BaseCompiler {
     static get key() {

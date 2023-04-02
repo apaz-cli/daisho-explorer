@@ -25,17 +25,17 @@
 import * as Sentry from '@sentry/node';
 import express from 'express';
 
-import {assert, unwrap} from '../assert';
-import {ClientState} from '../clientstate';
-import {ClientStateGoldenifier, ClientStateNormalizer} from '../clientstate-normalizer';
-import {isString} from '../common-utils';
-import {logger} from '../logger';
-import {StorageBase} from '../storage';
-import * as utils from '../utils';
+import {assert, unwrap} from '../assert.js';
+import {ClientState} from '../clientstate.js';
+import {ClientStateGoldenifier, ClientStateNormalizer} from '../clientstate-normalizer.js';
+import {isString} from '../common-utils.js';
+import {logger} from '../logger.js';
+import {StorageBase} from '../storage/index.js';
+import * as utils from '../utils.js';
 
-import {ApiHandler} from './api';
+import {ApiHandler} from './api.js';
 
-type HandlerConfig = {
+export type HandlerConfig = {
     compileHandler: any;
     clientOptionsHandler: any;
     storageHandler: StorageBase;
@@ -79,7 +79,7 @@ export class RouteAPI {
             .get('/z/:id', this.storedStateHandler.bind(this))
             .get('/z/:id/code/:session', this.storedCodeHandler.bind(this))
             .get('/resetlayout/:id', this.storedStateHandlerResetLayout.bind(this))
-            .get('/clientstate/:clientstatebase64', this.unstoredStateHandler.bind(this))
+            .get('/clientstate/:clientstatebase64([^]*)', this.unstoredStateHandler.bind(this))
             .get('/fromsimplelayout', this.simpleLayoutHandler.bind(this));
     }
 
