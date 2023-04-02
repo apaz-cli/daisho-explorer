@@ -9,8 +9,4 @@ mkdir daisho-explorer-release/ 2>/dev/null
 cd daisho-explorer-release/
 
 croc "$1"
-
-sleep 1
-
-croc "$1"
-
+tar -xzf der.archive
