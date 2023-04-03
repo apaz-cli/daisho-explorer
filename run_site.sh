@@ -14,7 +14,7 @@ if [ "$BN" = "daisho-explorer" ]; then
 fi
 
 cd dist/
-env NODE_ENV=production "$NODE" app.js --webpackContent webpack/static $EXTRA_ARGS
+env NODE_ENV=production "$NODE" app.js --webpackContent ../webpack/static $EXTRA_ARGS
 
 
 
