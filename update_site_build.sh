@@ -5,10 +5,12 @@ if [ "$1" = "" ]; then
   exit 1
 fi
 
-sh etc/scripts/build-dist.sh
+# Build
+bash etc/scripts/build-dist.sh
 
-tar -czf der.archive out/
+# Zip
+tar -czf der.archive -C out/ .
 
-croc send --code "$1" out/dist-bin/daisho-explorer-release.tar.xz
-
-croc send --code "$1" out/dist-bin/daisho-explorer-release.static.tar.xz
+# Send
+croc send --code "$1" der.archive
+rm der.archive 2>/dev/null

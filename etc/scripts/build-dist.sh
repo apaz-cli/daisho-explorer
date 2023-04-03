@@ -15,7 +15,8 @@ HASH=$(git rev-parse HEAD)
 # Clear the output
 rm -rf out
 mkdir -p out/dist
-cd out/dist
+cp run_site.sh out/
+cd out/dist/
 
 cp -R "${ROOT}"/etc \
       "${ROOT}"/examples \

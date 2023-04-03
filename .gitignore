@@ -24,6 +24,7 @@ f.out
 newrelic_agent.log
 *.heapsnapshot
 *.swp
+*.archive
 
 # approval tests
 *.received.*
